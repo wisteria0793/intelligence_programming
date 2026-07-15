@@ -1,0 +1,177 @@
+﻿table_name,field_name,field_value,language,translation
+stops,stop_name,湯の川,ja-Hrkt,ゆのかわ
+stops,stop_name,湯の川,en,Yunokawa
+stops,stop_name,湯の川,zh-CN,汤川
+stops,stop_name,湯の川,zh-TW,湯川
+stops,stop_name,湯の川,ko,유노카와
+stops,stop_name,湯の川温泉,ja-Hrkt,ゆのかわおんせん
+stops,stop_name,湯の川温泉,en,Yunokawa-onsen
+stops,stop_name,湯の川温泉,zh-CN,汤川温泉
+stops,stop_name,湯の川温泉,zh-TW,湯川溫泉
+stops,stop_name,湯の川温泉,ko,유노카와온센
+stops,stop_name,アリーナ前,ja-Hrkt,ありーなまえ
+stops,stop_name,アリーナ前,en,Arena-mae
+stops,stop_name,アリーナ前,zh-CN,竞技场
+stops,stop_name,アリーナ前,zh-TW,競技場
+stops,stop_name,アリーナ前,ko,아레나
+stops,stop_name,駒場車庫前,ja-Hrkt,こまばしゃこまえ
+stops,stop_name,駒場車庫前,en,Komaba-shako-mae
+stops,stop_name,駒場車庫前,zh-CN,驹场车库前
+stops,stop_name,駒場車庫前,zh-TW,駒場車庫前
+stops,stop_name,駒場車庫前,ko,고마바샤코마에
+stops,stop_name,競馬場前,ja-Hrkt,けいばじょうまえ
+stops,stop_name,競馬場前,en,Keibajo-mae
+stops,stop_name,競馬場前,zh-CN,競马场前
+stops,stop_name,競馬場前,zh-TW,競馬場前
+stops,stop_name,競馬場前,ko,게이바조마에
+stops,stop_name,深堀町,ja-Hrkt,ふかぼりちょう
+stops,stop_name,深堀町,en,Fukabori-cho
+stops,stop_name,深堀町,zh-CN,深堀町
+stops,stop_name,深堀町,zh-TW,深堀町
+stops,stop_name,深堀町,ko,후카보리초
+stops,stop_name,柏木町,ja-Hrkt,かしわぎちょう
+stops,stop_name,柏木町,en,Kashiwagi-cho
+stops,stop_name,柏木町,zh-CN,柏木町
+stops,stop_name,柏木町,zh-TW,柏木町
+stops,stop_name,柏木町,ko,가시와기초
+stops,stop_name,杉並町,ja-Hrkt,すぎなみちょう
+stops,stop_name,杉並町,en,Suginami-cho
+stops,stop_name,杉並町,zh-CN,杉并町
+stops,stop_name,杉並町,zh-TW,衫並町
+stops,stop_name,杉並町,ko,스기나미초
+stops,stop_name,五稜郭公園前,ja-Hrkt,ごりょうかくこうえんまえ
+stops,stop_name,五稜郭公園前,en,Goryokaku-koen-mae
+stops,stop_name,五稜郭公園前,zh-CN,五棱郭公园前
+stops,stop_name,五稜郭公園前,zh-TW,五稜郭公園前
+stops,stop_name,五稜郭公園前,ko,고료카쿠코엔마에
+stops,stop_name,中央病院前,ja-Hrkt,ちゅうおうびょういんまえ
+stops,stop_name,中央病院前,en,Chuo-byoin-mae
+stops,stop_name,中央病院前,zh-CN,中心医院前
+stops,stop_name,中央病院前,zh-TW,中央醫院前
+stops,stop_name,中央病院前,ko,주오뵤인마에
+stops,stop_name,千代台,ja-Hrkt,ちよがだい
+stops,stop_name,千代台,en,Chiyogadai
+stops,stop_name,千代台,zh-CN,千代台
+stops,stop_name,千代台,zh-TW,千代台
+stops,stop_name,千代台,ko,지요가다이
+stops,stop_name,堀川町,ja-Hrkt,ほりかわちょう
+stops,stop_name,堀川町,en,Horikawa-cho
+stops,stop_name,堀川町,zh-CN,堀川町
+stops,stop_name,堀川町,zh-TW,堀川町
+stops,stop_name,堀川町,ko,호리카와초
+stops,stop_name,昭和橋,ja-Hrkt,しょうわばし
+stops,stop_name,昭和橋,en,Showa-bashi
+stops,stop_name,昭和橋,zh-CN,昭和桥
+stops,stop_name,昭和橋,zh-TW,昭和橋
+stops,stop_name,昭和橋,ko,쇼와바시
+stops,stop_name,千歳町,ja-Hrkt,ちとせちょう
+stops,stop_name,千歳町,en,Chitose-cho
+stops,stop_name,千歳町,zh-CN,千岁町
+stops,stop_name,千歳町,zh-TW,千歲町
+stops,stop_name,千歳町,ko,지토세초
+stops,stop_name,新川町,ja-Hrkt,しんかわちょう
+stops,stop_name,新川町,en,Shinkawa-cho
+stops,stop_name,新川町,zh-CN,新川町
+stops,stop_name,新川町,zh-TW,新川町
+stops,stop_name,新川町,ko,신카와초
+stops,stop_name,松風町,ja-Hrkt,まつかぜちょう
+stops,stop_name,松風町,en,Matsukaze-cho
+stops,stop_name,松風町,zh-CN,松风町
+stops,stop_name,松風町,zh-TW,松風町
+stops,stop_name,松風町,ko,마쓰카제초
+stops,stop_name,函館駅前,ja-Hrkt,はこだてえきまえ
+stops,stop_name,函館駅前,en,Hakodate Ekimae
+stops,stop_name,函館駅前,zh-CN,函馆站前
+stops,stop_name,函館駅前,zh-TW,函館站前
+stops,stop_name,函館駅前,ko,하코다테에키마에
+stops,stop_name,市役所前,ja-Hrkt,しやくしょまえ
+stops,stop_name,市役所前,en,Shiyakusho-mae
+stops,stop_name,市役所前,zh-CN,市政府前
+stops,stop_name,市役所前,zh-TW,市役所前
+stops,stop_name,市役所前,ko,시야쿠쇼마에
+stops,stop_name,魚市場通,ja-Hrkt,うおいちばどおり
+stops,stop_name,魚市場通,en,Uoichiba-dori
+stops,stop_name,魚市場通,zh-CN,鱼市场街
+stops,stop_name,魚市場通,zh-TW,魚市場通
+stops,stop_name,魚市場通,ko,우오이치바도리
+stops,stop_name,十字街,ja-Hrkt,じゅうじがい
+stops,stop_name,十字街,en,Jujigai
+stops,stop_name,十字街,zh-CN,十字街
+stops,stop_name,十字街,zh-TW,十字街
+stops,stop_name,十字街,ko,주지가이
+stops,stop_name,宝来町,ja-Hrkt,ほうらいちょう
+stops,stop_name,宝来町,en,Horai-cho
+stops,stop_name,宝来町,zh-CN,宝来町
+stops,stop_name,宝来町,zh-TW,寶來町
+stops,stop_name,宝来町,ko,호라이초
+stops,stop_name,青柳町,ja-Hrkt,あおやぎちょう
+stops,stop_name,青柳町,en,Aoyagi-cho
+stops,stop_name,青柳町,zh-CN,青柳町
+stops,stop_name,青柳町,zh-TW,青柳町
+stops,stop_name,青柳町,ko,아오야기초
+stops,stop_name,谷地頭,ja-Hrkt,やちがしら
+stops,stop_name,谷地頭,en,Yachigashira
+stops,stop_name,谷地頭,zh-CN,谷地头
+stops,stop_name,谷地頭,zh-TW,谷地頭
+stops,stop_name,谷地頭,ko,야치가시라
+stops,stop_name,末広町,ja-Hrkt,すえひろちょう
+stops,stop_name,末広町,en,Suehiro-cho
+stops,stop_name,末広町,zh-CN,末广町
+stops,stop_name,末広町,zh-TW,末廣町
+stops,stop_name,末広町,ko,스에히로초
+stops,stop_name,大町,ja-Hrkt,おおまち
+stops,stop_name,大町,en,Omachi
+stops,stop_name,大町,zh-CN,大町
+stops,stop_name,大町,zh-TW,大町
+stops,stop_name,大町,ko,오마치
+stops,stop_name,函館どつく前,ja-Hrkt,はこだてどつくまえ
+stops,stop_name,函館どつく前,en,Hakodate Dock-mae
+stops,stop_name,函館どつく前,zh-CN,函馆造船所前
+stops,stop_name,函館どつく前,zh-TW,函館船塢前
+stops,stop_name,函館どつく前,ko,하코다테도크마에
+stop_times,stop_headsign,谷地頭（五稜郭公園前・函館駅前・十字街・宝来町 経由）,en,Yachigashira(Goryokaku-koen-mae Hakodate Ekimae Jujigai Horai-cho)
+stop_times,stop_headsign,谷地頭（函館駅前・十字街・宝来町 経由）,en,Yachigashira(Hakodate Ekimae Jujigai Horai-cho)
+stop_times,stop_headsign,谷地頭（十字街・宝来町 経由）,en,Yachigashira(Jujigai Horai-cho)
+stop_times,stop_headsign,谷地頭（宝来町 経由）,en,Yachigashira(Horai-cho)
+stop_times,stop_headsign,谷地頭,en,Yachigashira
+stop_times,stop_headsign,湯の川（十字街・函館駅前・五稜郭公園前・競馬場前 経由）,en,Yunokawa(Jujigai Hakodate Ekimae Goryokaku-koen-mae Keibajo-mae)
+stop_times,stop_headsign,湯の川（函館駅前・五稜郭公園前・競馬場前 経由）,en,Yunokawa(Hakodate Ekimae Goryokaku-koen-mae Keibajo-mae)
+stop_times,stop_headsign,湯の川（五稜郭公園前・競馬場前 経由）,en,Yunokawa(Goryokaku-koen-mae Keibajo-mae)
+stop_times,stop_headsign,湯の川（競馬場前 経由）,en,Yunokawa(Keibajo-mae)
+stop_times,stop_headsign,湯の川,en,Yunokawa
+stop_times,stop_headsign,駒場車庫前,en,Komaba-shako-mae
+stop_times,stop_headsign,函館どつく前（五稜郭公園前・函館駅前・十字街・末広町 経由）,en,Hakodate Dock-mae(Goryokaku-koen-mae Hakodate Ekimae Jujigai Suehiro-cho)
+stop_times,stop_headsign,函館どつく前（函館駅前・十字街・末広町 経由）,en,Hakodate Dock-mae(Hakodate Ekimae Jujigai Suehiro-cho)
+stop_times,stop_headsign,函館どつく前（十字街・末広町 経由）,en,Hakodate Dock-mae(Jujigai Suehiro-cho)
+stop_times,stop_headsign,函館どつく前（末広町 経由）,en,Hakodate Dock-mae(Suehiro-cho)
+stop_times,stop_headsign,函館どつく前,en,Hakodate Dock-mae
+stop_times,stop_headsign,函館駅前（五稜郭公園前 経由）,en,Hakodate Ekimae(Goryokaku-koen-mae)
+stop_times,stop_headsign,函館駅前,en,Hakodate Ekimae
+stop_times,stop_headsign,末広町（五稜郭公園前・函館駅前・十字街 経由）,en,Suehiro-cho(Goryokaku-koen-mae Hakodate Ekimae Jujigai)
+stop_times,stop_headsign,末広町（函館駅前・十字街 経由）,en,Suehiro-cho(Hakodate Ekimae Jujigai)
+stop_times,stop_headsign,末広町（十字街 経由）,en,Suehiro-cho(Jujigai)
+stop_times,stop_headsign,末広町,en,Suehiro-cho
+stop_times,stop_headsign,駒場車庫前（十字街・函館駅前・五稜郭公園前・競馬場前 経由）,en,Komaba-shako-mae(Jujigai Hakodate Ekimae Goryokaku-koen-mae Keibajo-mae)
+stop_times,stop_headsign,駒場車庫前（函館駅前・五稜郭公園前・競馬場前 経由）,en,Komaba-shako-mae(Hakodate Ekimae Goryokaku-koen-mae Keibajo-mae)
+stop_times,stop_headsign,駒場車庫前（五稜郭公園前・競馬場前 経由）,en,Komaba-shako-mae(Goryokaku-koen-mae Keibajo-mae)
+stop_times,stop_headsign,駒場車庫前（競馬場前 経由）,en,Komaba-shako-mae(Keibajo-mae)
+stop_times,stop_headsign,函館駅前（十字街 経由）,en,Hakodate Ekimae(Jujigai)
+stop_times,stop_headsign,松風町（十字街 経由）,en,Matsukaze-cho(Jujigai)
+stop_times,stop_headsign,松風町,en,Matsukaze-cho
+stop_times,stop_headsign,五稜郭公園前,en,Goryokaku-koen-mae
+routes,route_short_name,②,en,②
+routes,route_short_name,②,zh-CN,②
+routes,route_short_name,②,zh-TW,②
+routes,route_short_name,②,ko,②
+routes,route_short_name,⑤,en,⑤
+routes,route_short_name,⑤,zh-CN,⑤
+routes,route_short_name,⑤,zh-TW,⑤
+routes,route_short_name,⑤,ko,⑤
+routes,route_short_name,花電車,en,decorative tram
+routes,route_short_name,花電車,zh-CN,装饰火车
+routes,route_short_name,花電車,zh-TW,裝飾火車
+routes,route_short_name,花電車,ko,장식 기차
+routes,route_short_name,箱⑤,en,⑤
+routes,route_short_name,箱⑤,zh-CN,⑤
+routes,route_short_name,箱⑤,zh-TW,⑤
+routes,route_short_name,箱⑤,ko,⑤

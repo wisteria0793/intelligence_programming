@@ -1,0 +1,2 @@
+﻿agency_id,agency_name,agency_url,agency_timezone,agency_lang,agency_phone,agency_fare_url,agency_email
+9000020012025,函館市電,http://www.city.hakodate.hokkaido.jp/bunya/hakodateshiden/,Asia/Tokyo,ja,0138-32-1730,,koutsu@city.hakodate.hokkaido.jp

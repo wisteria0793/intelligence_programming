@@ -1,0 +1,2 @@
+﻿feed_publisher_name,feed_publisher_url,feed_contact_url,feed_contact_email,feed_lang,feed_start_date,feed_end_date,feed_version
+函館市企業局,http://www.city.hakodate.hokkaido.jp/bunya/hakodateshiden/,http://www.city.hakodate.hokkaido.jp/bunya/hakodateshiden/,sonosujiya@gmail.com,ja,20260615,20270614,2026/06/15 16:18:59 （GTFS出力日時） 付加情報：20260613_2026年06月13日（●令和8年5月10日～・通常ダイヤ 「特1-マラソン・所用104」十字街移設後） その筋屋 2.523 ●ODPT基本ライセンス(https://developer.odpt.org/terms/data_basic_license.html) ※一般のバス利用者への案内利用はバス会社に公開許可を得ましょう。

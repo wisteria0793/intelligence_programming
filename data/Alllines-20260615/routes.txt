@@ -1,0 +1,7 @@
+﻿route_id,agency_id,route_short_name,route_long_name,route_desc,route_type,route_color,route_text_color
+②_A,9000020012025,②,,,3,FF0000,FFFFFF
+⑤_A,9000020012025,⑤,,,3,0000FF,FFFFFF
+函館市電5系統_A,9000020012025,,函館市電5系統,,3,0000FF,FFFFFF
+②_B,9000020012025,②,,,3,FF0000,FFFFFF
+⑤_B,9000020012025,⑤,,,3,0000FF,FFFFFF
+函館市電5系統_B,9000020012025,,函館市電5系統,,3,0000FF,FFFFFF
