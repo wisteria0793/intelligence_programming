@@ -96,19 +96,38 @@ def run_clustering_and_plot():
             else:
                 edge_colors.append('#e0e0e0')
                 
-    lc = LineCollection(lines, colors=edge_colors, linewidths=0.5, alpha=0.6, zorder=1)
-    ax.add_collection(lc)
-    
-    # 5. 各ノードのクラスタ描画 (散布図)
-    print("Plotting classified nodes...")
+    # 4. OSM 道路網エッジ（LineCollection）の描画
+    print("Building road network edges for plotting...")
+    lines = []
+    edge_colors = []
     cmap = colormaps.get_cmap('tab10')
     
+    for u, v in G.edges():
+        u_str, v_str = str(u), str(v)
+        if u_str in node_to_pos and v_str in node_to_pos:
+            pos_u = node_to_pos[u_str]
+            pos_v = node_to_pos[v_str]
+            lines.append([pos_u, pos_v])
+            
+            # エッジの色を設定：同じクラスタのノード同士ならクラスタの色、異なるなら薄グレー
+            c_u = node_to_cluster.get(u_str, -1)
+            c_v = node_to_cluster.get(v_str, -1)
+            if c_u == c_v and c_u != -1:
+                edge_colors.append(cmap(c_u))  # エッジにクラスタの色を適用
+            else:
+                edge_colors.append('#e0e0e0')  # 境界エッジは薄グレー
+                
+    lc = LineCollection(lines, colors=edge_colors, linewidths=0.8, alpha=0.8, zorder=1)
+    ax.add_collection(lc)
+    
+    # 5. 各ノードのクラスタ描画 (散布図はサイズを極小にしてエッジを目立たせる)
+    print("Plotting classified nodes...")
     for c in range(n_clusters):
         df_c = df_nodes[df_nodes["cluster_id"] == c]
         ax.scatter(
             df_c["longitude"], df_c["latitude"],
             color=cmap(c), label=f"DGI Cluster {c}",
-            s=4.0, alpha=0.8, edgecolors='none', zorder=2
+            s=0.5, alpha=0.3, edgecolors='none', zorder=2
         )
         
     # 6. 市電の軌道の描画 (赤い太実線)
