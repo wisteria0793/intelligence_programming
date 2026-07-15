@@ -26,11 +26,26 @@ def train():
     
     node_to_idx = {nid: idx for idx, nid in enumerate(df_feats["node_id"].values)}
     
-    # 2. 100%ランダムな16次元初期特徴量 X の作成 (再現性のためにシードを固定)
+    # 2. 14次元ランダム + 2次元正規化座標 の16次元ハイブリッド初期特徴量 X の作成 (シード固定)
     torch.manual_seed(42)
     np.random.seed(42)
-    X = torch.randn((num_nodes, 16), dtype=torch.float)
-    print(f"Initialized 16-dimensional random features. Shape: {X.shape}")
+    X_rand = torch.randn((num_nodes, 14), dtype=torch.float)
+    
+    # 緯度経度の取得と0-1正規化
+    lons = df_feats["longitude"].values.astype(np.float32)
+    lats = df_feats["latitude"].values.astype(np.float32)
+    
+    min_lon, max_lon = lons.min(), lons.max()
+    min_lat, max_lat = lats.min(), lats.max()
+    
+    norm_lons = (lons - min_lon) / (max_lon - min_lon)
+    norm_lats = (lats - min_lat) / (max_lat - min_lat)
+    
+    X_pos = torch.tensor(np.stack([norm_lons, norm_lats], axis=1), dtype=torch.float)
+    
+    # 結合して16次元特徴量にする
+    X = torch.cat([X_rand, X_pos], dim=1)
+    print(f"Initialized 16D hybrid features (14D rand + 2D coord). Shape: {X.shape}")
     
     # 3. グラフの接続構造（エッジ）と重みの構築
     print("Loading OSM graph structure...")
