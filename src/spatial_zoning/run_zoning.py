@@ -93,9 +93,10 @@ def main():
         
     print(f"Generated node spatial embeddings shape: {H_np.shape}")
     
-    # 5. 階層的クラスタリング (K=8) による空間ブロック分割
-    print("Applying Hierarchical Clustering (Ward method, n_clusters=8)...")
-    clusterer = AgglomerativeClustering(n_clusters=8, linkage='ward')
+    # 5. 階層的クラスタリング (K=4) による空間ブロック分割
+    n_clusters = 4
+    print(f"Applying Hierarchical Clustering (Ward method, n_clusters={n_clusters})...")
+    clusterer = AgglomerativeClustering(n_clusters=n_clusters, linkage='ward')
     cluster_labels = clusterer.fit_predict(H_np)
     
     df_feats["cluster_id"] = cluster_labels
@@ -111,7 +112,7 @@ def main():
     m = folium.Map(location=[center_lat, center_lon], zoom_start=13)
     
     cluster_colors = [
-        "red", "blue", "green", "orange", "purple", "cadetblue", "darkred", "gray"
+        "red", "blue", "green", "orange"
     ]
     
     # ノードIDから座標とクラスタIDを高速検索するためのマップを作成
@@ -124,7 +125,7 @@ def main():
         }
         
     # クラスタごとの路線(エッジ)の座標ペアリストを初期化
-    cluster_edges = {i: [] for i in range(8)}
+    cluster_edges = {i: [] for i in range(n_clusters)}
     
     # 全エッジをスキャンしてクラスタごとの座標を格納
     for u, v in G.edges():
