@@ -41,7 +41,9 @@ def parse_args():
     parser.add_argument("--weight_transit", type=float, default=1.8,
                         help="交通アクセス（通学）の優先度 (0.0 - 2.0)")
     parser.add_argument("--weight_life", type=float, default=0.8,
-                        help="生活インフラ（空間ブロック価値）の優先度 (0.0 - 2.0)")
+                        help="生活インフラ（空間クラス価値）の優先度 (0.0 - 2.0)")
+    parser.add_argument("--weight_supply", type=float, default=0.6,
+                        help="賃貸部屋数の多さ（部屋の探しやすさ）の優先度 (0.0 - 2.0)")
     parser.add_argument("--weight_slope", type=float, default=0.4,
                         help="坂道回避の優先度 (0.0 - 2.0)")
     return parser.parse_known_args()[0]
@@ -50,7 +52,7 @@ def main():
     args = parse_args()
     print("=== 空間ゾーニングベース・二段階推薦エンジンの起動 ===")
     print(f"  目的地: {args.target}")
-    print(f"  パラメータ: 交通アクセス={args.weight_transit}, ゾーニング生活価値={args.weight_life}, 坂道回避={args.weight_slope}")
+    print(f"  パラメータ: 交通アクセス={args.weight_transit}, ゾーニング生活価値={args.weight_life}, 部屋の多さ={args.weight_supply}, 坂道回避={args.weight_slope}")
 
     if not os.path.exists(clusters_csv_path):
         print(f"Error: zoning clusters not found at {clusters_csv_path}. Run run_zoning.py first.")
@@ -149,10 +151,15 @@ def main():
     max_elev = elevations.max()
     norm_elevations = elevations / max(1.0, max_elev)
 
-    # 6. 二段階総合スコアの算出
+    # 6. 二段階総合スコアの算出 (対数賃貸部屋数も評価にブレンド)
     life_np = df_nodes["cluster_life_score"].values.astype(np.float32)
+    supply_np = df_nodes["rent_supply_density_500m"].values.astype(np.float32)
+    max_supply = supply_np.max()
+    norm_supply = supply_np / max_supply if max_supply > 0.0 else np.zeros_like(supply_np)
+
     final_scores = (args.weight_transit * access_np + 
-                    args.weight_life * life_np - 
+                    args.weight_life * life_np + 
+                    args.weight_supply * norm_supply - 
                     args.weight_slope * norm_elevations)
 
     # 7. cKDTreeによる最寄りバス停名へのマッピングと集約
@@ -174,6 +181,7 @@ def main():
             "score": float(final_scores[idx]),
             "transit_score": float(access_np[idx]),
             "life_score": float(life_np[idx]),
+            "supply_score": float(norm_supply[idx]),
             "elevation": float(elevations[idx]),
             "cluster_id": int(df_nodes.loc[idx, "cluster_id"])
         })
@@ -186,15 +194,15 @@ def main():
 
     # 8. 結果の表示
     print(f"\n=== {args.target} 周辺のおすすめ居住停留所エリア（ゾーニング推薦：上位15件） ===")
-    print(f"{'順位':<4}{'代表エリア名(最寄停)':<20}{'総合スコア':<10}{'交通アクセス':<10}{'生活ゾーニング':<10}{'所属クラスタ':<8}{'標高 (m)':<8}")
-    print("-" * 85)
+    print(f"{'順位':<4}{'代表エリア名(最寄停)':<20}{'総合スコア':<10}{'交通アクセス':<10}{'生活ゾーニング':<10}{'供給(部屋の多さ)':<10}{'所属クラスタ':<8}{'標高 (m)':<8}")
+    print("-" * 95)
     
     for rank in range(min(15, len(df_res_sorted))):
         row = df_res_sorted.iloc[rank]
-        print(f"{rank+1:<4}{row['area_name']:<20}{row['score']:<12.3f}{row['transit_score']:<12.3f}{row['life_score']:<12.3f}{int(row['cluster_id']):<12}{row['elevation']:<8.1f}")
+        print(f"{rank+1:<4}{row['area_name']:<20}{row['score']:<12.3f}{row['transit_score']:<12.3f}{row['life_score']:<12.3f}{row['supply_score']:<14.3f}{int(row['cluster_id']):<12}{row['elevation']:<8.1f}")
         
-    print("-" * 85)
-    print("※ 総合スコア = 交通アクセス×W_transit + ゾーニング生活価値×W_life - 居住地標高×W_slope")
+    print("-" * 95)
+    print("※ 総合スコア = 交通アクセス×W_transit + ゾーニング生活価値×W_life + 部屋の多さ×W_supply - 居住地標高×W_slope")
 
 if __name__ == "__main__":
     main()

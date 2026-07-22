@@ -49,7 +49,7 @@ base_features[:, 5] /= max(1.0, max_values["elevation"])
 # 3. 停留所周辺の店舗利便性の計算（生活利便性特徴量）
 # 各停留所から半径 500m 以内にある主要カテゴリー別の店舗数をカウント
 # 対象とする主要カテゴリー
-TARGET_CATEGORIES = ['コンビニ', 'スーパーマーケット', '薬局/ドラッグストア', '飲食店', '温泉/銭湯', '病院']
+TARGET_CATEGORIES = ['コンビニ', 'スーパーマーケット', '薬局/ドラッグストア', '飲食店', '温泉/銭湯', '病院', '娯楽', '商業施設']
 store_counts = np.zeros((num_stops, len(TARGET_CATEGORIES)), dtype=np.float32)
 
 # 距離のメートル換算係数
@@ -81,7 +81,7 @@ for c_idx in range(len(TARGET_CATEGORIES)):
 # 特徴量の結合 (6次元 + 6次元 = 12次元)
 node_features = np.hstack([base_features, store_counts])
 x = torch.tensor(node_features, dtype=torch.float)
-print(f"Node feature matrix shape: {x.shape} (12 features per node)")
+print(f"Node feature matrix shape: {x.shape} (14 features per node)")
 
 # 4. エッジ（接続関係）とエッジ特徴量の構築
 # route_stops_df から、同じ系統（route_id）かつ同じ方向（direction）で隣り合う停留所間を接続

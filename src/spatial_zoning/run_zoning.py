@@ -43,7 +43,8 @@ def main():
     # カラム: [elevation, degree, store_density_500m, supermarket_density_500m, stop_density_500m] (距離は排除)
     feat_cols = [
         "elevation", "degree", "store_density_500m", 
-        "supermarket_density_500m", "stop_density_500m"
+        "supermarket_density_500m", "stop_density_500m",
+        "rent_supply_density_500m"
     ]
     X_raw = df_feats[feat_cols].values.astype(np.float32)
     
@@ -82,7 +83,7 @@ def main():
     
     # 4. Untrained GCN による空間平滑化の実行 (シード固定で決定論的に)
     torch.manual_seed(42)
-    encoder = RoadZoningEncoder(in_channels=5, hidden_channels=16, out_channels=8)
+    encoder = RoadZoningEncoder(in_channels=6, hidden_channels=16, out_channels=8)
     encoder.eval()
     
     with torch.no_grad():

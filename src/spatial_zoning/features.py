@@ -9,18 +9,64 @@ from scipy.spatial import cKDTree
 graphml_path = "/Users/atsuyakatougi/Desktop/知能システム/後半/data/osm/hakodate_walk.graphml"
 stops_features_path = "/Users/atsuyakatougi/Desktop/知能システム/後半/local_bus/stops_features.csv"
 stores_features_path = "/Users/atsuyakatougi/Desktop/知能システム/後半/data/stores_features.csv"
+excel_path = "/Users/atsuyakatougi/Desktop/知能システム/後半/data/店舗情報.xlsx"
 zoning_features_csv = "/Users/atsuyakatougi/Desktop/知能システム/後半/data/zoning_node_features.csv"
 
 # 函館付近（緯度41.8度）での緯度経度1度あたりのメートル数
 M_PER_DEGREE_LAT = 111100.0
 M_PER_DEGREE_LON = 82500.0
 
+def load_town_rent_supply():
+    print("Parsing rental room supply from Excel...")
+    try:
+        # 賃貸シートから町名別部屋数（44行目以降）をパース
+        df = pd.read_excel(excel_path, sheet_name="賃貸")
+        town_supply = {}
+        
+        # 44行目 (Excel上はインデックス43あたり) から開始
+        # Unnamed: 0 が町名, Unnamed: 1 が部屋数
+        start_idx = 43
+        for idx in range(start_idx, len(df)):
+            row = df.iloc[idx]
+            town = str(row.iloc[0]).strip()
+            count_val = row.iloc[1]
+            if pd.notna(row.iloc[0]) and pd.notna(count_val):
+                try:
+                    # 数値に変換できるかチェック
+                    room_count = int(float(count_val))
+                    town_supply[town] = room_count
+                except ValueError:
+                    continue
+        print(f"Loaded {len(town_supply)} town rental supply records from Excel.")
+        return town_supply
+    except Exception as e:
+        print(f"Error loading rental supply from Excel: {e}")
+        return {}
+
 def build_zoning_features():
-    print("--- 目的地フリー・停留所質考慮型特徴量の抽出を開始 ---")
+    print("--- 目的地フリー・停留所質 ＆ 対数賃貸部屋数考慮型特徴量の抽出を開始 ---")
     
     stops_df = pd.read_csv(stops_features_path)
     stores_df = pd.read_csv(stores_features_path)
+    town_supply = load_town_rent_supply()
+    town_names = list(town_supply.keys())
     
+    # 各停留所の名前から最寄りの「町」の部屋数を特定してマッピング
+    def match_stop_to_supply(stop_name):
+        matched_town = None
+        max_len = 0
+        for town in town_names:
+            if town in stop_name:
+                if len(town) > max_len:
+                    max_len = len(town)
+                    matched_town = town
+        if matched_town:
+            return town_supply[matched_town]
+        return 0
+        
+    stops_df["rental_supply"] = stops_df["stop_name"].apply(match_stop_to_supply)
+    print(f"Mapped rental supply to {len(stops_df)} bus stops.")
+
     # 1. 標高補間の準備
     known_lons = list(stops_df['longitude'].values) + list(stores_df['経度'].values)
     known_lats = list(stops_df['latitude'].values) + list(stores_df['緯度'].values)
@@ -74,22 +120,25 @@ def build_zoning_features():
     tree_stops = cKDTree(stops_m)
     tree_supers = cKDTree(supers_m) if len(supers_m) > 0 else None
     
-    # 各停留所の便数（total_daily_trips）配列を取得
+    # 停留所の便数配列 ＆ アパート供給室数配列を取得
     stop_trips = stops_df["total_daily_trips"].values
+    stop_supply = stops_df["rental_supply"].values
     
-    # 密度算出
-    print("Calculating store and transit stop (trips weighted) densities...")
+    # 各種近傍密度の算出
+    print("Calculating infrastructure densities...")
     store_counts = [len(idx_list) for idx_list in tree_stores.query_ball_point(nodes_m, r=500.0)]
-    
-    # ★一律カウントではなく、停留所の「便数総和」を計算して質を考慮する！
     stop_trips_densities = [int(np.sum(stop_trips[idx_list])) for idx_list in tree_stops.query_ball_point(nodes_m, r=500.0)]
+    
+    # 500m以内のアパート部屋数の合計を算出し、対数スケールに変換
+    node_supply_sums = [float(np.sum(stop_supply[idx_list])) for idx_list in tree_stops.query_ball_point(nodes_m, r=500.0)]
+    log_rent_supplies = [float(np.log10(1.0 + s)) for s in node_supply_sums]
     
     if tree_supers:
         super_counts = [len(idx_list) for idx_list in tree_supers.query_ball_point(nodes_m, r=500.0)]
     else:
         super_counts = [0] * num_nodes
         
-    # 5. 特徴量 DataFrame の作成 (大学や駅の距離情報は完全に排除)
+    # 5. 特徴量 DataFrame の作成 (大学や駅の距離情報は完全に排除した6次元初期特徴量)
     df_features = pd.DataFrame({
         "node_id": node_ids,
         "longitude": node_lons,
@@ -98,11 +147,12 @@ def build_zoning_features():
         "degree": node_degrees,
         "store_density_500m": store_counts,
         "supermarket_density_500m": super_counts,
-        "stop_density_500m": stop_trips_densities # 便数重み付け密度をここに代入
+        "stop_density_500m": stop_trips_densities,
+        "rent_supply_density_500m": log_rent_supplies # 対数アパート供給量を追加
     })
     
     df_features.to_csv(zoning_features_csv, index=False)
-    print(f"Saved zoning features to {zoning_features_csv}")
+    print(f"Saved zoning features with 6 dimensions to {zoning_features_csv}")
     print("--- 特徴量抽出完了 ---")
 
 if __name__ == "__main__":
