@@ -19,6 +19,7 @@ def main():
         return
         
     df_zoning = pd.read_csv(zoning_csv_path)
+    df_zoning["node_id"] = df_zoning["node_id"].astype(str)
     df_stops = pd.read_csv(stops_csv_path)
     
     print("Loading OSM graph structure...")
@@ -39,7 +40,7 @@ def main():
     # 高速検索用マップ
     node_info = {}
     for _, row in df_zoning.iterrows():
-        node_info[row["node_id"]] = {
+        node_info[str(row["node_id"])] = {
             "lat": float(row["latitude"]),
             "lon": float(row["longitude"]),
             "cluster_id": int(row["cluster_id"])
