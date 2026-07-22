@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_33ae5c5d16aaa9c5d1dc78d47a5e7095 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_33ae5c5d16aaa9c5d1dc78d47a5e7095" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_33ae5c5d16aaa9c5d1dc78d47a5e7095 = L.map(
+                "map_33ae5c5d16aaa9c5d1dc78d47a5e7095",
+                {
+                    center: [41.842053, 140.767011],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 13,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_1fc7a0e2eab403e8b379896f7a7018a1 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_1fc7a0e2eab403e8b379896f7a7018a1.addTo(map_33ae5c5d16aaa9c5d1dc78d47a5e7095);
+        
+    
+            var marker_35ce34b79c78520683e4d6c423c9766a = L.marker(
+                [41.842053, 140.767011],
+                {
+}
+            ).addTo(map_33ae5c5d16aaa9c5d1dc78d47a5e7095);
+        
+    
+            var icon_049f577e033f0fdc1401582c5d396f4f = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "bus",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_59d44650f2c5769d7f7e4236e5306755 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_c228376fc2a8dcef8426b8a4897d680c = $(`<div id="html_c228376fc2a8dcef8426b8a4897d680c" style="width: 100.0%; height: 100.0%;"><b>目的地停留所: はこだて未来大学</b><br>(公立はこだて未来大学)</div>`)[0];
+                popup_59d44650f2c5769d7f7e4236e5306755.setContent(html_c228376fc2a8dcef8426b8a4897d680c);
+            
+        
+
+        marker_35ce34b79c78520683e4d6c423c9766a.bindPopup(popup_59d44650f2c5769d7f7e4236e5306755)
+        ;
+
+        
+    
+    
+            marker_35ce34b79c78520683e4d6c423c9766a.bindTooltip(
+                `<div>
+                     目的地: 公立はこだて未来大学 (はこだて未来大学)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_35ce34b79c78520683e4d6c423c9766a.setIcon(icon_049f577e033f0fdc1401582c5d396f4f);
+            
+    
+            var marker_c3f7495b55a2c2ef737900bc25040daa = L.marker(
+                [41.84234, 140.77126],
+                {
+}
+            ).addTo(map_33ae5c5d16aaa9c5d1dc78d47a5e7095);
+        
+    
+            var icon_358831174854ed710b5ed4f38f8168dc = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "bus",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_ca3f2106f0a3acfe54789dea2c886628 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_3c9c4c41961bd9e2cd1d5ef463b38b9e = $(`<div id="html_3c9c4c41961bd9e2cd1d5ef463b38b9e" style="width: 100.0%; height: 100.0%;">                 <div style="width: 240px; font-family: sans-serif;">                     <b style="font-size: 14px;">第 1 位: 赤川貯水池 停留所</b><br>                     <b>総合スコア: 0.655</b><br>                     <hr style="margin: 5px 0; border: 0; border-top: 1px solid #ccc;">                     ・目的地との直線距離: 0.35 km<br>                     ・通学利便性: 0.838<br>                     ・基本生活利便性: 0.000<br>                     ・娯楽利便性: 0.000<br>                     ・商業施設利便性: 0.000<br>                     ・標高: 105.5 m                 </div>                 </div>`)[0];
+                popup_ca3f2106f0a3acfe54789dea2c886628.setContent(html_3c9c4c41961bd9e2cd1d5ef463b38b9e);
+            
+        
+
+        marker_c3f7495b55a2c2ef737900bc25040daa.bindPopup(popup_ca3f2106f0a3acfe54789dea2c886628)
+        ;
+
+        
+    
+    
+            marker_c3f7495b55a2c2ef737900bc25040daa.bindTooltip(
+                `<div>
+                     第 1 位: 赤川貯水池 停留所
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_c3f7495b55a2c2ef737900bc25040daa.setIcon(icon_358831174854ed710b5ed4f38f8168dc);
+            
+    
+            var marker_b1b87015b2727efddd6078781c34da83 = L.marker(
+                [41.83876, 140.76923],
+                {
+}
+            ).addTo(map_33ae5c5d16aaa9c5d1dc78d47a5e7095);
+        
+    
+            var icon_c07b37365e5fdedc0937e413a7dae718 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "bus",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_f9ab2b3094cf86b41f2e9d2de33f7183 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_1e29a663af051f93fde1c77a4121f74c = $(`<div id="html_1e29a663af051f93fde1c77a4121f74c" style="width: 100.0%; height: 100.0%;">                 <div style="width: 260px; font-family: sans-serif; max-height: 280px; overflow-y: auto;">                     <b style="font-size: 14px; color: #1a73e8;">重複停留所 (計 2 件)</b><br>                     <hr style="margin: 5px 0; border: 0; border-top: 1.5px solid #1a73e8;">                                      <div style="margin-bottom: 10px; border-bottom: 1px dashed #eee; padding-bottom: 5px;">                         <b style="font-size: 13px;">第 2 位: 赤川三区 停留所</b> (スコア: 0.349)<br>                         <span style="font-size: 11px; color: #666;">                             距離: 0.41 km / 通学: 0.57 / 生活: 0.00<br>                             娯楽: 0.00 / 商業: 0.00 / 標高: 94.5m                         </span>                     </div>                                          <div style="margin-bottom: 10px; border-bottom: 1px dashed #eee; padding-bottom: 5px;">                         <b style="font-size: 13px;">第 4 位: 赤川３区 停留所</b> (スコア: 0.034)<br>                         <span style="font-size: 11px; color: #666;">                             距離: 0.41 km / 通学: 0.27 / 生活: 0.00<br>                             娯楽: 0.00 / 商業: 0.00 / 標高: 94.5m                         </span>                     </div>                     </div></div>`)[0];
+                popup_f9ab2b3094cf86b41f2e9d2de33f7183.setContent(html_1e29a663af051f93fde1c77a4121f74c);
+            
+        
+
+        marker_b1b87015b2727efddd6078781c34da83.bindPopup(popup_f9ab2b3094cf86b41f2e9d2de33f7183)
+        ;
+
+        
+    
+    
+            marker_b1b87015b2727efddd6078781c34da83.bindTooltip(
+                `<div>
+                     第 2, 4 位 (計 2 停留所重複)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_b1b87015b2727efddd6078781c34da83.setIcon(icon_c07b37365e5fdedc0937e413a7dae718);
+            
+    
+            var marker_86b9836112a6544a3c384b09a1a9b815 = L.marker(
+                [41.84553, 140.77381],
+                {
+}
+            ).addTo(map_33ae5c5d16aaa9c5d1dc78d47a5e7095);
+        
+    
+            var icon_c82e43c4fe6d64144aed4629cb3431cf = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "bus",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_41ee0022f2252212b8b467aed892df25 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_8532444d7f14924ef047d2016a1955fb = $(`<div id="html_8532444d7f14924ef047d2016a1955fb" style="width: 100.0%; height: 100.0%;">                 <div style="width: 240px; font-family: sans-serif;">                     <b style="font-size: 14px;">第 3 位: 赤川四区 停留所</b><br>                     <b>総合スコア: 0.036</b><br>                     <hr style="margin: 5px 0; border: 0; border-top: 1px solid #ccc;">                     ・目的地との直線距離: 0.68 km<br>                     ・通学利便性: 0.413<br>                     ・基本生活利便性: 0.000<br>                     ・娯楽利便性: 0.000<br>                     ・商業施設利便性: 0.000<br>                     ・標高: 116.2 m                 </div>                 </div>`)[0];
+                popup_41ee0022f2252212b8b467aed892df25.setContent(html_8532444d7f14924ef047d2016a1955fb);
+            
+        
+
+        marker_86b9836112a6544a3c384b09a1a9b815.bindPopup(popup_41ee0022f2252212b8b467aed892df25)
+        ;
+
+        
+    
+    
+            marker_86b9836112a6544a3c384b09a1a9b815.bindTooltip(
+                `<div>
+                     第 3 位: 赤川四区 停留所
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_86b9836112a6544a3c384b09a1a9b815.setIcon(icon_c82e43c4fe6d64144aed4629cb3431cf);
+            
+    
+            var marker_7723b34d4540a7e32efdd3f394fb0bd9 = L.marker(
+                [41.83021, 140.76433],
+                {
+}
+            ).addTo(map_33ae5c5d16aaa9c5d1dc78d47a5e7095);
+        
+    
+            var icon_1930f8d84bc68581e220e50ac8e7e686 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "bus",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_21ea449120cf2c57d8f01413fccec85f = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_a3a204c8de3bd3e391f94b69eb8ef6e3 = $(`<div id="html_a3a204c8de3bd3e391f94b69eb8ef6e3" style="width: 100.0%; height: 100.0%;">                 <div style="width: 240px; font-family: sans-serif;">                     <b style="font-size: 14px;">第 5 位: 浄水場下 停留所</b><br>                     <b>総合スコア: 0.010</b><br>                     <hr style="margin: 5px 0; border: 0; border-top: 1px solid #ccc;">                     ・目的地との直線距離: 1.33 km<br>                     ・通学利便性: 0.038<br>                     ・基本生活利便性: 0.040<br>                     ・娯楽利便性: 0.667<br>                     ・商業施設利便性: 0.000<br>                     ・標高: 3.7 m                 </div>                 </div>`)[0];
+                popup_21ea449120cf2c57d8f01413fccec85f.setContent(html_a3a204c8de3bd3e391f94b69eb8ef6e3);
+            
+        
+
+        marker_7723b34d4540a7e32efdd3f394fb0bd9.bindPopup(popup_21ea449120cf2c57d8f01413fccec85f)
+        ;
+
+        
+    
+    
+            marker_7723b34d4540a7e32efdd3f394fb0bd9.bindTooltip(
+                `<div>
+                     第 5 位: 浄水場下 停留所
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_7723b34d4540a7e32efdd3f394fb0bd9.setIcon(icon_1930f8d84bc68581e220e50ac8e7e686);
+            
+</script>
+</html>

@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_eba64b826bc7121b62b7d5129644c5a0 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_eba64b826bc7121b62b7d5129644c5a0" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_eba64b826bc7121b62b7d5129644c5a0 = L.map(
+                "map_eba64b826bc7121b62b7d5129644c5a0",
+                {
+                    center: [41.842053, 140.767011],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 13,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_603210668f8e222baffcd171af780c01 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_603210668f8e222baffcd171af780c01.addTo(map_eba64b826bc7121b62b7d5129644c5a0);
+        
+    
+            var marker_9329514bb58952816c567dc7cbbcab23 = L.marker(
+                [41.842053, 140.767011],
+                {
+}
+            ).addTo(map_eba64b826bc7121b62b7d5129644c5a0);
+        
+    
+            var icon_e443d81387380be2fa268a5dcf159e61 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "bus",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_dfe39bddeebe4ead04e2ff53561250a1 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_3e6da692dc21371e6decc11e559f5407 = $(`<div id="html_3e6da692dc21371e6decc11e559f5407" style="width: 100.0%; height: 100.0%;"><b>目的地停留所: はこだて未来大学</b><br>(公立はこだて未来大学)</div>`)[0];
+                popup_dfe39bddeebe4ead04e2ff53561250a1.setContent(html_3e6da692dc21371e6decc11e559f5407);
+            
+        
+
+        marker_9329514bb58952816c567dc7cbbcab23.bindPopup(popup_dfe39bddeebe4ead04e2ff53561250a1)
+        ;
+
+        
+    
+    
+            marker_9329514bb58952816c567dc7cbbcab23.bindTooltip(
+                `<div>
+                     目的地: 公立はこだて未来大学 (はこだて未来大学)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_9329514bb58952816c567dc7cbbcab23.setIcon(icon_e443d81387380be2fa268a5dcf159e61);
+            
+    
+            var marker_1647484ff226e92fc2ea92b7376ff05a = L.marker(
+                [41.81732, 140.755],
+                {
+}
+            ).addTo(map_eba64b826bc7121b62b7d5129644c5a0);
+        
+    
+            var icon_b72b3dbae4d11e0e9ef9d653f9fe9dc7 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "bus",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_49d4e535abe0795466674180f0e384c1 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_e1d647ca2d354376f82861514d3e9b36 = $(`<div id="html_e1d647ca2d354376f82861514d3e9b36" style="width: 100.0%; height: 100.0%;">                 <div style="width: 240px; font-family: sans-serif;">                     <b style="font-size: 14px;">第 1 位: 函館地方気象台 停留所</b><br>                     <b>総合スコア: 0.830</b><br>                     <hr style="margin: 5px 0; border: 0; border-top: 1px solid #ccc;">                     ・目的地との直線距離: 2.92 km<br>                     ・通学利便性: 0.077<br>                     ・基本生活利便性: 0.923<br>                     ・娯楽利便性: 0.000<br>                     ・商業施設利便性: 0.200<br>                     ・標高: 34.6 m                 </div>                 </div>`)[0];
+                popup_49d4e535abe0795466674180f0e384c1.setContent(html_e1d647ca2d354376f82861514d3e9b36);
+            
+        
+
+        marker_1647484ff226e92fc2ea92b7376ff05a.bindPopup(popup_49d4e535abe0795466674180f0e384c1)
+        ;
+
+        
+    
+    
+            marker_1647484ff226e92fc2ea92b7376ff05a.bindTooltip(
+                `<div>
+                     第 1 位: 函館地方気象台 停留所
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_1647484ff226e92fc2ea92b7376ff05a.setIcon(icon_b72b3dbae4d11e0e9ef9d653f9fe9dc7);
+            
+    
+            var marker_de9eb6978b55a25ede8f8d33c64d25b2 = L.marker(
+                [41.8155, 140.75173],
+                {
+}
+            ).addTo(map_eba64b826bc7121b62b7d5129644c5a0);
+        
+    
+            var icon_8761b4c5ed4c665853013f007766e8dc = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "bus",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_e13ec2a1a1745a8935b7755541da7ee9 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_36525f71543155c69476ce879395d9e3 = $(`<div id="html_36525f71543155c69476ce879395d9e3" style="width: 100.0%; height: 100.0%;">                 <div style="width: 240px; font-family: sans-serif;">                     <b style="font-size: 14px;">第 2 位: 亀田支所前 停留所</b><br>                     <b>総合スコア: 0.733</b><br>                     <hr style="margin: 5px 0; border: 0; border-top: 1px solid #ccc;">                     ・目的地との直線距離: 3.21 km<br>                     ・通学利便性: 0.183<br>                     ・基本生活利便性: 0.822<br>                     ・娯楽利便性: 0.000<br>                     ・商業施設利便性: 0.200<br>                     ・標高: 30.5 m                 </div>                 </div>`)[0];
+                popup_e13ec2a1a1745a8935b7755541da7ee9.setContent(html_36525f71543155c69476ce879395d9e3);
+            
+        
+
+        marker_de9eb6978b55a25ede8f8d33c64d25b2.bindPopup(popup_e13ec2a1a1745a8935b7755541da7ee9)
+        ;
+
+        
+    
+    
+            marker_de9eb6978b55a25ede8f8d33c64d25b2.bindTooltip(
+                `<div>
+                     第 2 位: 亀田支所前 停留所
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_de9eb6978b55a25ede8f8d33c64d25b2.setIcon(icon_8761b4c5ed4c665853013f007766e8dc);
+            
+    
+            var marker_563daffd76ba7b3759044844eac09f6e = L.marker(
+                [41.82044, 140.74657],
+                {
+}
+            ).addTo(map_eba64b826bc7121b62b7d5129644c5a0);
+        
+    
+            var icon_9230494590e8a45bc3f39dbecdce4cc4 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "bus",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_a2792057434bad214b4628a67de80829 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_3ff9d0713ab0dcc4fc8a4bbfa49edfe3 = $(`<div id="html_3ff9d0713ab0dcc4fc8a4bbfa49edfe3" style="width: 100.0%; height: 100.0%;">                 <div style="width: 260px; font-family: sans-serif; max-height: 280px; overflow-y: auto;">                     <b style="font-size: 14px; color: #1a73e8;">重複停留所 (計 2 件)</b><br>                     <hr style="margin: 5px 0; border: 0; border-top: 1.5px solid #1a73e8;">                                      <div style="margin-bottom: 10px; border-bottom: 1px dashed #eee; padding-bottom: 5px;">                         <b style="font-size: 13px;">第 3 位: 美原３丁目 停留所</b> (スコア: 0.528)<br>                         <span style="font-size: 11px; color: #666;">                             距離: 2.93 km / 通学: 0.03 / 生活: 0.60<br>                             娯楽: 0.33 / 商業: 0.00 / 標高: 30.1m                         </span>                     </div>                                          <div style="margin-bottom: 10px; border-bottom: 1px dashed #eee; padding-bottom: 5px;">                         <b style="font-size: 13px;">第 4 位: 美原３丁目・金物 停留所</b> (スコア: 0.521)<br>                         <span style="font-size: 11px; color: #666;">                             距離: 2.93 km / 通学: 0.01 / 生活: 0.60<br>                             娯楽: 0.33 / 商業: 0.00 / 標高: 30.1m                         </span>                     </div>                     </div></div>`)[0];
+                popup_a2792057434bad214b4628a67de80829.setContent(html_3ff9d0713ab0dcc4fc8a4bbfa49edfe3);
+            
+        
+
+        marker_563daffd76ba7b3759044844eac09f6e.bindPopup(popup_a2792057434bad214b4628a67de80829)
+        ;
+
+        
+    
+    
+            marker_563daffd76ba7b3759044844eac09f6e.bindTooltip(
+                `<div>
+                     第 3, 4 位 (計 2 停留所重複)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_563daffd76ba7b3759044844eac09f6e.setIcon(icon_9230494590e8a45bc3f39dbecdce4cc4);
+            
+    
+            var marker_77a150953c0f2d7ba9c4a7999617950c = L.marker(
+                [41.81975, 140.75331],
+                {
+}
+            ).addTo(map_eba64b826bc7121b62b7d5129644c5a0);
+        
+    
+            var icon_25fca0c3b03b2b45fb1ad255b7a9ec35 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "bus",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_b55b5c703a8ed8ff723b7484e38d2b25 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_b6ed5e2ae024860b928b2be0f620c7d3 = $(`<div id="html_b6ed5e2ae024860b928b2be0f620c7d3" style="width: 100.0%; height: 100.0%;">                 <div style="width: 240px; font-family: sans-serif;">                     <b style="font-size: 14px;">第 5 位: 渡島総合振興局前 停留所</b><br>                     <b>総合スコア: 0.495</b><br>                     <hr style="margin: 5px 0; border: 0; border-top: 1px solid #ccc;">                     ・目的地との直線距離: 2.72 km<br>                     ・通学利便性: 0.034<br>                     ・基本生活利便性: 0.582<br>                     ・娯楽利便性: 0.000<br>                     ・商業施設利便性: 0.000<br>                     ・標高: 38.4 m                 </div>                 </div>`)[0];
+                popup_b55b5c703a8ed8ff723b7484e38d2b25.setContent(html_b6ed5e2ae024860b928b2be0f620c7d3);
+            
+        
+
+        marker_77a150953c0f2d7ba9c4a7999617950c.bindPopup(popup_b55b5c703a8ed8ff723b7484e38d2b25)
+        ;
+
+        
+    
+    
+            marker_77a150953c0f2d7ba9c4a7999617950c.bindTooltip(
+                `<div>
+                     第 5 位: 渡島総合振興局前 停留所
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_77a150953c0f2d7ba9c4a7999617950c.setIcon(icon_25fca0c3b03b2b45fb1ad255b7a9ec35);
+            
+</script>
+</html>
