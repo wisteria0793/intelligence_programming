@@ -104,8 +104,8 @@ def main():
     df_feats.to_csv(output_clusters_csv, index=False)
     print(f"Saved zoning clusters to {output_clusters_csv}")
     
-    # 6. Foliumによる空間ゾーニング地図の生成 (高速描画のためCircleMarkerを使用)
-    print("Generating interactive spatial zoning map...")
+    # 6. Foliumによる空間ゾーニング地図の生成 (エッジ単位で色塗り)
+    print("Generating interactive spatial zoning map (road edges coloring)...")
     center_lat = df_feats["latitude"].mean()
     center_lon = df_feats["longitude"].mean()
     m = folium.Map(location=[center_lat, center_lon], zoom_start=13)
@@ -114,25 +114,44 @@ def main():
         "red", "blue", "green", "orange", "purple", "cadetblue", "darkred", "gray"
     ]
     
+    # ノードIDから座標とクラスタIDを高速検索するためのマップを作成
+    node_info = {}
     for _, row in df_feats.iterrows():
-        c_id = int(row["cluster_id"])
-        lat = float(row["latitude"])
-        lon = float(row["longitude"])
-        folium.CircleMarker(
-            location=[lat, lon],
-            radius=2.5,
-            color=cluster_colors[c_id % len(cluster_colors)],
-            fill=True,
-            fill_color=cluster_colors[c_id % len(cluster_colors)],
-            fill_opacity=0.7,
-            weight=0,
-            popup=f"Node ID: {row['node_id']}<br>Cluster: {c_id}<br>Elevation: {row['elevation']:.1f}m",
-            tooltip=f"Cluster {c_id}"
-        ).add_to(m)
+        node_info[row["node_id"]] = {
+            "lat": float(row["latitude"]),
+            "lon": float(row["longitude"]),
+            "cluster_id": int(row["cluster_id"])
+        }
         
+    # クラスタごとの路線(エッジ)の座標ペアリストを初期化
+    cluster_edges = {i: [] for i in range(8)}
+    
+    # 全エッジをスキャンしてクラスタごとの座標を格納
+    for u, v in G.edges():
+        if u in node_info and v in node_info:
+            u_data = node_info[u]
+            v_data = node_info[v]
+            
+            # エッジの所属クラスタは、両端ノードのうち始点ノード u のクラスタIDを使用
+            c_id = u_data["cluster_id"]
+            
+            # [[u_lat, u_lon], [v_lat, v_lon]] の形式で追加
+            cluster_edges[c_id].append([[u_data["lat"], u_data["lon"]], [v_data["lat"], v_data["lon"]]])
+            
+    # クラスタごとに一括して PolyLine (MultiPolyLine) を描画し、HTML肥大化を防ぐ
+    for c_id, lines in cluster_edges.items():
+        if len(lines) > 0:
+            folium.PolyLine(
+                locations=lines,
+                color=cluster_colors[c_id % len(cluster_colors)],
+                weight=2.0,
+                opacity=0.8,
+                tooltip=f"Zone Cluster {c_id}"
+            ).add_to(m)
+            
     map_output_path = os.path.join(os.path.dirname(output_clusters_csv), "spatial_zoning_map.html")
     m.save(map_output_path)
-    print(f"Saved interactive zoning map to {map_output_path}")
+    print(f"Saved interactive edge-colored zoning map to {map_output_path}")
 
 if __name__ == "__main__":
     main()
