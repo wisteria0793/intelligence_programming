@@ -23,22 +23,44 @@ cat_colors = {
     'スーパーマーケット': 'green',
     'コンビニ': 'orange',
     '薬局/ドラッグストア': 'blue',
+    'ドラッグストア': 'blue',
     '飲食店': 'cadetblue',
     '温泉/銭湯': 'purple',
+    '温泉': 'purple',
     '病院': 'pink',
+    '医療機関': 'pink',
     '娯楽': 'darkpurple',
-    '商業施設': 'red'
+    '商業施設': 'red',
+    '美容': 'purple',
+    '食品店': 'lightgreen',
+    'アパレル': 'darkgreen',
+    '書籍・ホビー': 'beige',
+    '靴': 'darkblue',
+    '図書館': 'blue',
+    '大学': 'red',
+    '公共交通機関': 'lightblue'
 }
 
 icon_mapping = {
     'スーパーマーケット': 'shopping-cart',
     'コンビニ': 'shopping-bag',
     '薬局/ドラッグストア': 'medkit',
+    'ドラッグストア': 'medkit',
     '飲食店': 'cutlery',
     '温泉/銭湯': 'tint',
+    '温泉': 'tint',
     '病院': 'plus-square',
+    '医療機関': 'plus-square',
     '娯楽': 'gamepad',
-    '商業施設': 'building'
+    '商業施設': 'building',
+    '美容': 'scissors',
+    '食品店': 'cutlery',
+    'アパレル': 'tags',
+    '書籍・ホビー': 'book',
+    '靴': 'shopping-bag',
+    '図書館': 'book',
+    '大学': 'graduation-cap',
+    '公共交通機関': 'bus'
 }
 
 # 全店舗（554件）単体をプロット
