@@ -7,6 +7,7 @@ import torch.nn as nn
 from torch_geometric.nn import GCNConv
 from sklearn.cluster import AgglomerativeClustering
 from features import build_zoning_features
+import folium
 
 # パス設定
 graphml_path = "/Users/atsuyakatougi/Desktop/知能システム/後半/data/osm/hakodate_walk.graphml"
@@ -102,6 +103,36 @@ def main():
     # 結果保存
     df_feats.to_csv(output_clusters_csv, index=False)
     print(f"Saved zoning clusters to {output_clusters_csv}")
+    
+    # 6. Foliumによる空間ゾーニング地図の生成 (高速描画のためCircleMarkerを使用)
+    print("Generating interactive spatial zoning map...")
+    center_lat = df_feats["latitude"].mean()
+    center_lon = df_feats["longitude"].mean()
+    m = folium.Map(location=[center_lat, center_lon], zoom_start=13)
+    
+    cluster_colors = [
+        "red", "blue", "green", "orange", "purple", "cadetblue", "darkred", "gray"
+    ]
+    
+    for _, row in df_feats.iterrows():
+        c_id = int(row["cluster_id"])
+        lat = float(row["latitude"])
+        lon = float(row["longitude"])
+        folium.CircleMarker(
+            location=[lat, lon],
+            radius=2.5,
+            color=cluster_colors[c_id % len(cluster_colors)],
+            fill=True,
+            fill_color=cluster_colors[c_id % len(cluster_colors)],
+            fill_opacity=0.7,
+            weight=0,
+            popup=f"Node ID: {row['node_id']}<br>Cluster: {c_id}<br>Elevation: {row['elevation']:.1f}m",
+            tooltip=f"Cluster {c_id}"
+        ).add_to(m)
+        
+    map_output_path = os.path.join(os.path.dirname(output_clusters_csv), "spatial_zoning_map.html")
+    m.save(map_output_path)
+    print(f"Saved interactive zoning map to {map_output_path}")
 
 if __name__ == "__main__":
     main()
